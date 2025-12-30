@@ -11,3 +11,7 @@ Short notes site that organizes preparation for a large-scale model training rol
 
 ## How to view
 - Open `docs/index.html` locally to browse the notes; markdown files live in `docs/content/` and render through `docs/view.html`.
+- Key files:
+  - `READLIST.md`: curated sources by tier, numbered with “Why” notes.
+  - `QUESTIONS.md`: question-first prompts aligned to each tier.
+  - `SYLLABUS.md`: condensed prep map tying the sections together.

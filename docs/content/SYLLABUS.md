@@ -142,6 +142,68 @@ You are not expected to invent theory, but:
 
 ---
 
+# Tier 4: Failure, Drift, and Emergent Behavior
+
+### 9. Objective–Behavior Coupling
+
+* Why proxy objectives get gamed; reward shaping pitfalls
+* Detecting misalignment before deployment
+* Tradeoffs when optimizing helpful/harmless/honest objectives
+
+### 10. Continual / Iterative Training Risks
+
+* Catastrophic forgetting vs slow drift
+* Gradient interference across rounds; when to restart vs continue
+* Long-horizon evaluation to catch degradation
+
+### 11. Causal Reasoning in Training Changes
+
+* Confounders in multi-knob experiments
+* When A/B tests mislead for ML systems
+* Designing interventions that isolate cause
+
+### 12. Human-in-the-Loop Pathologies
+
+* Annotator bias/fatigue; changing guidelines
+* Preference noise and its downstream effects
+* Preventing feedback loops between model and annotators
+
+### 13. Degradation, Drift, and Silent Failures
+
+* Metric drift vs behavioral drift; offline/online divergence
+* Hard-to-detect regressions and rare failures
+* Monitoring and rollback criteria
+
+---
+
+# Tier 5: Architecture, Safety, and Strategic Judgment
+
+### 14. Architectural Limits and Inductive Bias
+
+* When transformer biases help/hurt; long-context behavior
+* Knowing when architecture (not tuning) is the bottleneck
+* When to justify architectural change vs more post-training
+
+### 15. Safety–Capability Tradeoffs
+
+* Over-alignment and refusal calibration
+* Capability loss vs safety gains; acceptable tradeoffs
+* Measuring “helpful but safe” and deciding to ship
+
+### 16. Compute Budgeting & Experiment Prioritization
+
+* Scaling-law intuition for experiment sizing
+* When to downscale or skip expensive runs
+* Iteration speed vs final quality under tight budgets
+
+### 17. Owning Model Quality End-to-End
+
+* Defining “good enough” and communicating risk
+* Balancing short-term wins vs long-term health
+* Pushing back on shipping pressure; documenting limitations
+
+---
+
 ## What You Explicitly Do NOT Need
 
 Do not spend prep time on:
