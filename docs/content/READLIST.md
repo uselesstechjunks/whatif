@@ -34,11 +34,9 @@ This readlist is structured to match the syllabus **tier-by-tier**.
 
 1. **Sebastian Raschka — LLM Finetuning Overview**
    [https://magazine.sebastianraschka.com/p/finetuning-large-language-models](https://magazine.sebastianraschka.com/p/finetuning-large-language-models)
-   Why: Clean mental model of pretraining vs SFT vs post-training.
 
 2. **Lilian Weng — RLHF**
    [https://lilianweng.github.io/tags/rlhf/](https://lilianweng.github.io/tags/rlhf/)
-   Why: Clear conceptual grounding; revisit often.
 
 ---
 
