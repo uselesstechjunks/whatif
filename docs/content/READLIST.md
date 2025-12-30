@@ -19,18 +19,18 @@ This readlist is structured to match the syllabus **tier-by-tier**.
    Why: Code-adjacent view of modern post-training systems; bridges research and production.
 
 3. **Hugging Face RLHF Guide**
-   [https://huggingface.co/docs/trl/main/en/rlhf](https://huggingface.co/docs/trl/main/en/rlhf)
+   [https://huggingface.co/learn/deep-rl-course/en/unitbonus3/rlhf](https://huggingface.co/learn/deep-rl-course/en/unitbonus3/rlhf)
    Why: Practical, realistic overview of RLHF variants and pitfalls.
 
-4. **Direct Preference Optimization (DPO)**
+5. **Direct Preference Optimization (DPO)**
    [https://arxiv.org/abs/2305.18290](https://arxiv.org/abs/2305.18290)
    Why: Understand the objective, assumptions, and instability regimes.
 
-5. **Group Relative Policy Optimization (GRPO)**
+6. **Group Relative Policy Optimization (GRPO)**
    [https://arxiv.org/abs/2402.03300](https://arxiv.org/abs/2402.03300)
    Why: Increasingly used in real systems; understand why grouping stabilizes learning.
 
-6. **OpenAI — Learning from Human Preferences**
+7. **OpenAI — Learning from Human Preferences**
    [https://openai.com/research/learning-from-human-preferences](https://openai.com/research/learning-from-human-preferences)
    Why: Foundational intuition for preference-based learning.
 
@@ -39,11 +39,11 @@ This readlist is structured to match the syllabus **tier-by-tier**.
 #### Supporting intuition (highly recommended)
 
 1. **Sebastian Raschka — LLM Finetuning Overview**
-   [https://sebastianraschka.com/blog/2023/llm-finetuning.html](https://sebastianraschka.com/blog/2023/llm-finetuning.html)
+   [https://magazine.sebastianraschka.com/p/finetuning-large-language-models](https://magazine.sebastianraschka.com/p/finetuning-large-language-models)
    Why: Clean mental model of pretraining vs SFT vs post-training.
 
 2. **Lilian Weng — RLHF**
-   [https://lilianweng.github.io/posts/2023-03-15-rlhf/](https://lilianweng.github.io/posts/2023-03-15-rlhf/)
+   [https://lilianweng.github.io/tags/rlhf/](https://lilianweng.github.io/tags/rlhf/)
    Why: Clear conceptual grounding; revisit often.
 
 ---
