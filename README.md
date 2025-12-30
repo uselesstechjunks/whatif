@@ -1,5 +1,7 @@
 # TrainTrack
 
+https://uselesstechjunks.github.io/traintrack/index.html
+
 Short notes site that organizes preparation for a large-scale model training role (research engineer / scientist focused on training, objectives, data, and evaluation rather than product shipping). It is an imperfect guide aimed at senior-level research engineering roles centered on training large models at scale.
 
 ## What this covers
