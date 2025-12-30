@@ -1,6 +1,4 @@
-# whatif
-
-# Ideal Target Role (Canonical Definition)
+# Ideal Target Role
 
 ## Role Title (what you should search for)
 
