@@ -1,6 +1,6 @@
 ## Ideal Target Role
 
-## Role Title (what you should search for)
+## Role Title
 
 Primary:
 
@@ -24,9 +24,7 @@ This is the single sentence your resume, job search, and prep plan should orbit.
 
 ---
 
-## What You Actually Do (Day-to-Day)
-
-You should expect most of your time to be spent on:
+## What You Actually Do Day-to-Day
 
 1. **Training-time interventions**
 
@@ -73,7 +71,7 @@ They are implicitly asking:
 
 ---
 
-## Ideal Interview Loop (What You Should Expect)
+## What You Should Expect During Interview Loop
 
 Strong signal roles in this space usually test:
 
@@ -157,7 +155,7 @@ Reject immediately if:
 
 ---
 
-## “Things You Must Know” (Ruthlessly Scoped)
+## “Things You Must Know”
 
 This is your **prep boundary**.
 
