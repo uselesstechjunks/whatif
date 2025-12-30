@@ -1,20 +1,36 @@
-# Prep Syllabus — Strictly Optimized
+# Prep Syllabus — Research Engineer / Research Scientist (LLMs & Large-Scale Training)
 
-## Mental Model First (Non-negotiable)
+## Mental Model (Non-Negotiable)
 
 You are preparing to be evaluated as:
 
-> “Someone who can take a strong but imperfect large model and systematically improve it under real-world constraints.”
+> **Someone who can take a strong but imperfect large model and systematically improve it under real-world constraints (data, compute, safety, iteration speed).**
 
-Every topic below maps directly to that evaluation criterion.
+Every topic below exists because it shows up:
+
+* in senior interviews, or
+* in day-to-day work on post-training / model quality teams.
 
 ---
 
-## Tier 1: Core (Must Be Excellent)
+## Tier 0: Foundations You Are Assumed to Have (No Over-Indexing)
+
+You are assumed to already be comfortable with:
+
+* Backpropagation, SGD variants, basic optimization
+* Transformer architecture at a high level
+* PyTorch/JAX usage for model training
+* Probability, linear algebra, basic statistics
+
+You **do not** need to re-study these unless gaps surface.
+
+---
+
+## Tier 1: Core Model Improvement Skills (Must Be Excellent)
 
 ### 1. Post-Training of Large Language Models
 
-You should be fluent enough to **design experiments**, not just explain concepts.
+You should be fluent enough to **design and debug experiments**, not just explain concepts.
 
 **What you must know**
 
@@ -27,10 +43,10 @@ You should be fluent enough to **design experiments**, not just explain concepts
 * When post-training hurts base capabilities
 * Mixing multiple objectives without collapse
 
-**Interview expectation**
+**Expected capability**
 
-* “Why did metric X improve but Y regress?”
-* “How would you tune this pipeline if loss diverges after N steps?”
+* Design post-training pipelines
+* Diagnose collapse, reward hacking, regressions
 
 ---
 
@@ -40,63 +56,60 @@ This is where strong candidates separate.
 
 **What you must know**
 
-* Learning rate schedules and failure modes
+* Learning-rate schedules and failure modes
 * Gradient noise scale intuition
 * Batch size vs convergence tradeoffs
 * Regularization in large models
-* Checkpoint averaging, EMA, early stopping decisions
+* EMA, checkpoint averaging, early stopping
 
 **You should be able to**
 
-* Diagnose training runs from logs
-* Propose *minimal* interventions, not shotgun fixes
+* Read training curves and logs causally
+* Propose **minimal**, targeted interventions
 
 ---
 
 ### 3. Evaluation & Model Debugging
 
-This is the single highest-leverage area.
+This is the **highest-leverage skill**.
 
 **What you must know**
 
 * Offline evaluation design for LLMs
-* Metric sensitivity and leakage
+* Metric sensitivity, leakage, proxy failure
 * Dataset slicing and error taxonomies
-* Avoiding false positives in improvements
-* Interpreting preference data
+* Interpreting preference and human feedback data
 
-**Interview expectation**
+**Expected capability**
 
-* “Model A beats Model B on metric M. Do we ship it?”
-* “How do you know this isn’t overfitting?”
+* Decide whether improvements are real
+* Explain *why* a metric moved (or didn’t)
 
 ---
 
-### 4. Data as a First-Class Lever
+### 4. Data as a First-Class Training Lever
 
-Not data engineering — *data for training decisions*.
+Not data engineering — *data for model behavior*.
 
 **What you must know**
 
-* Data filtering and mixing strategies
-* Sampling distributions
-* Curriculum and replay
-* Dealing with noisy / adversarial data
-* Tradeoffs between data volume and data quality
+* Filtering vs reweighting vs mixing
+* Sampling distributions and curricula
+* Replay, freshness, and data decay
+* Noisy, adversarial, and biased data
+* Data volume vs data quality tradeoffs
 
 ---
 
-## Tier 2: Systems for Training (Only What Matters)
+## Tier 2: Systems for Training (Only What Affects Model Behavior)
 
-You are **not** being evaluated as an infra engineer — but you must understand constraints.
+You are **not** an infra engineer, but you must reason under constraints.
 
 ### 5. Distributed Training Essentials
 
-Focus only on what affects model behavior.
-
 **Must understand**
 
-* Data parallel vs model parallel (high level)
+* Data vs model vs pipeline parallelism (conceptually)
 * Memory vs compute bottlenecks
 * Throughput vs convergence tradeoffs
 * Failure recovery and reproducibility
@@ -104,23 +117,21 @@ Focus only on what affects model behavior.
 **Nice to have**
 
 * Megatron-style abstractions
-* ZeRO concepts (without deep implementation)
+* ZeRO-style memory optimizations
 
 ---
 
-### 6. Efficiency as an Enabler
-
-Only where it unlocks experimentation.
+### 6. Efficiency as an Enabler (Not a Goal)
 
 **Know conceptually**
 
 * Mixed precision tradeoffs
 * Checkpointing vs recomputation
-* Why some optimizations change training dynamics
+* Why some system optimizations change optimization dynamics
 
 ---
 
-## Tier 3: Research Judgment (Soft but Critical)
+## Tier 3: Research Judgment & Experimentation
 
 This is often evaluated implicitly.
 
@@ -129,78 +140,169 @@ This is often evaluated implicitly.
 You must demonstrate:
 
 * Hypothesis-driven experiments
-* Minimal ablations
+* Minimal, interpretable ablations
 * Knowing when *not* to run something
-* How to react to negative results
+* Learning from negative results
+
+---
 
 ### 8. Reading & Applying Research
 
 You are not expected to invent theory, but:
 
-* You should map papers to training knobs
-* You should know when a paper will not scale
+* Map papers to actionable training knobs
+* Identify hidden assumptions
+* Know when an idea will not scale or transfer
 
 ---
 
-# Tier 4: Failure, Drift, and Emergent Behavior
+## Tier 4: Failure, Drift, and Emergent Behavior
+
+This tier distinguishes senior researchers from strong engineers.
 
 ### 9. Objective–Behavior Coupling
 
-* Why proxy objectives get gamed; reward shaping pitfalls
-* Detecting misalignment before deployment
-* Tradeoffs when optimizing helpful/harmless/honest objectives
+* Why proxy objectives get gamed
+* Reward shaping pathologies
+* Detecting misalignment early
+* Helpfulness / harmlessness / honesty tradeoffs
 
-### 10. Continual / Iterative Training Risks
+---
+
+### 10. Continual & Iterative Training Risks
 
 * Catastrophic forgetting vs slow drift
-* Gradient interference across rounds; when to restart vs continue
-* Long-horizon evaluation to catch degradation
+* Gradient interference across iterations
+* Restart vs continue decisions
+* Long-horizon evaluation strategies
+
+---
 
 ### 11. Causal Reasoning in Training Changes
 
 * Confounders in multi-knob experiments
-* When A/B tests mislead for ML systems
-* Designing interventions that isolate cause
-
-### 12. Human-in-the-Loop Pathologies
-
-* Annotator bias/fatigue; changing guidelines
-* Preference noise and its downstream effects
-* Preventing feedback loops between model and annotators
-
-### 13. Degradation, Drift, and Silent Failures
-
-* Metric drift vs behavioral drift; offline/online divergence
-* Hard-to-detect regressions and rare failures
-* Monitoring and rollback criteria
+* When A/B tests mislead in ML systems
+* Isolating causal effects under noise
+* “Correlation wins” vs “causal confidence”
 
 ---
 
-# Tier 5: Architecture, Safety, and Strategic Judgment
+### 12. Human-in-the-Loop Pathologies
 
-### 14. Architectural Limits and Inductive Bias
+* Annotator bias, fatigue, and incentives
+* Preference noise and label drift
+* Adaptive data collection feedback loops
+* When to remove or redesign the human loop
 
-* When transformer biases help/hurt; long-context behavior
-* Knowing when architecture (not tuning) is the bottleneck
-* When to justify architectural change vs more post-training
+---
+
+### 13. Degradation, Drift, and Silent Failures
+
+* Metric drift vs behavioral drift
+* Offline vs online divergence
+* Rare and long-tail failure modes
+* Monitoring, rollback, and escalation criteria
+
+---
+
+## Tier 5: Architecture, Safety, and Strategic Judgment
+
+This tier reflects **senior ownership**.
+
+### 14. Architectural Limits & Inductive Bias
+
+* What transformer inductive biases give you
+* Long-context behavior limits
+* When architecture (not tuning) is the bottleneck
+* When architectural change is justified
+
+---
 
 ### 15. Safety–Capability Tradeoffs
 
 * Over-alignment and refusal calibration
-* Capability loss vs safety gains; acceptable tradeoffs
-* Measuring “helpful but safe” and deciding to ship
+* Capability suppression vs risk reduction
+* Measuring “helpful but safe”
+* When shipping a weaker model is correct
+
+---
 
 ### 16. Compute Budgeting & Experiment Prioritization
 
 * Scaling-law intuition for experiment sizing
-* When to downscale or skip expensive runs
-* Iteration speed vs final quality under tight budgets
+* Downscaling vs skipping runs
+* Iteration speed vs final quality
+* Justifying compute spend
+
+---
 
 ### 17. Owning Model Quality End-to-End
 
-* Defining “good enough” and communicating risk
-* Balancing short-term wins vs long-term health
-* Pushing back on shipping pressure; documenting limitations
+* Defining “good enough”
+* Communicating uncertainty and risk
+* Pushing back on shipping pressure
+* Writing honest model limitation docs
+
+---
+
+## Tier 6: Pretraining Context (Targeted, Not Deep)
+
+You are **not** a pretraining specialist, but you must understand:
+
+### 18. Pretraining Choices That Surface Later
+
+* Tokenization and data mixture effects
+* Pretraining objective implications
+* Why some post-training issues are “baked in”
+* Limits of post-training compensation
+
+---
+
+## Tier 7: Execution & Proof of Skill (Critical Gap Closed)
+
+This tier turns knowledge into **evidence**.
+
+### 19. Project-Level Execution
+
+You must be able to:
+
+* Define a concrete model improvement goal
+* Design evaluation *before* training
+* Run controlled experiments
+* Document failures and tradeoffs
+
+---
+
+### 20. Evaluation Harnesses & Tooling Literacy
+
+You should understand:
+
+* Common LLM eval harness patterns
+* Prompt sensitivity and variance
+* Leakage and benchmark overfitting
+* When automatic evals fail
+
+---
+
+### 21. Training Runbooks & Debug Playbooks
+
+You should have:
+
+* “If loss diverges, do X”
+* “If reward collapses, do Y”
+* “If metrics disagree, do Z”
+* Clear rollback criteria
+
+---
+
+### 22. Interview & Communication Readiness
+
+You must be able to:
+
+* Explain decisions crisply
+* Walk through failures honestly
+* Defend tradeoffs under pressure
+* Reason aloud with incomplete data
 
 ---
 
@@ -210,7 +312,15 @@ Do not spend prep time on:
 
 * Serving systems
 * API design
-* Product analytics
 * Frontend or UX
 * Generic MLOps tooling
 * Business KPI optimization
+* Full-stack product ML
+
+---
+
+## End State
+
+If you complete this syllabus, you are prepared to operate as:
+
+> **A senior research engineer who can improve, debug, and own large models under real constraints — not just implement papers.**
